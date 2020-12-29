@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/nav_home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_home" />
+
+    <item
+        android:id="@+id/nav_basket"
+        android:title="@string/cart"
+        android:icon="@drawable/ic_outline_shopping_cart_24"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_chat"
+        android:title="@string/chat_label"
+        android:icon="@drawable/ic_message" />
+
+    <item
+        android:id="@+id/nav_account"
+        android:title="@string/account"
+        android:icon="@drawable/ic_person" />
+
+</menu>

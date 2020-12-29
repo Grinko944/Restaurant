@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+
+    <string name="cart">Korb</string>
+    <string name="home">Zuhause</string>
+    <string name="account">Konto</string>
+    <string name="some_went_wrong">Etwas ist schief gelaufen</string>
+    <string name="sign_in_text">Betreten</string>
+    <string name="auth_text">Hallo, um fortzufahren, müssen Sie sich anmelden oder in der Anwendung registrieren. Um einzutreten oder sich zu registrieren, müssen Sie nur Ihre echte E-Mail-Adresse eingeben und ein Passwort eingeben.</string>
+    <string name="sign_out_label">Hinausgehen</string>
+
+    <string name="name_hint">Gib deinen Namen ein</string>
+    <string name="old_password_hint">Geben Sie Ihr altes Passwort ein</string>
+    <string name="new_password_hint">Geben Sie ein neues Kennwort ein</string>
+    <string name="email_hint">Geben sie ihre E-Mail Adresse ein</string>
+    <string name="password_hint">Geben Sie Ihr Passwort ein</string>
+
+    <string name="enable_night_theme">Dunkle Version aktivieren</string>
+    <string name="enable_light_theme">Lichtversion einschließen</string>
+
+    <string name="change_name_text">Geben Sie den neuen Namen ein, der in Anwendungen angezeigt werden soll</string>
+    <string name="change_email_text">Geben Sie eine neue E-Mail-Adresse ein, über die Sie Nachrichten erhalten möchten, und Sie werden in Anwendungen angezeigt</string>
+    <string name="change_password_text">Geben Sie das neue Kennwort ein, mit dem Sie sich bei Anwendungen anmelden möchten</string>
+
+    <string name="current_carrency">€ %s</string>
+    <string name="to_cart_label">in den Korb</string>
+    <string name="save_label">sparen</string>
+    <string name="name_error_label">Gib deinen Namen ein</string>
+
+    <string name="change_user_name_label">Klicken Sie hier, um den Benutzernamen zu ändern</string>
+    <string name="change_email_label">Klicken Sie hier, um die E-Mail-Adresse zu ändern</string>
+    <string name="change_password_label">Klicken Sie hier, um das Passwort zu ändern</string>
+    <string name="email_error_text">Bitte geben Sie eine gültige Email-Adresse ein</string>
+    <string name="change_language_label">Sprache wählen: %s</string>
+    <string name="password_small_error">Ihr Passwort muss mindestens 5 Zeichen lang sein</string>
+    <string name="password_empty_error">Erstellen Sie Ihr neues Passwort</string>
+    <string name="password_no_matches_error">Ihre Passwörter stimmen nicht überein</string>
+
+    <string-array name="languages">
+        <item>Русский</item>
+        <item>English</item>
+        <item>Deutsche</item>
+        <item>Български</item>
+    </string-array>
+
+    <string name="total_label">Gesamt</string>
+    <string name="continue_label">Des Weiteren</string>
+    <string name="no_have_products_in_cart_label">Sie haben keine Produkte in Ihrem Warenkorb</string>
+    <string name="change_language_text">Sprache ändern</string>
+    <string name="change_language_success_label">Du hast deine Sprache geändert</string>
+    <string name="enter_correct_password_error">Geben Sie das richtige Passwort für Ihr Konto ein</string>
+    <string name="enter_correct_email_error">Bitte geben Sie eine gültige Email-Adresse ein</string>
+    <string name="enter_password_lenght_more_5_error">Geben Sie ein Passwort mit mindestens 5 Zeichen ein</string>
+    <string name="create_order_label">Bestellen</string>
+    <string name="select_day">Wähle einen Tag</string>
+    <string name="select_time">Zeit auswählen</string>
+    <string name="select_day_and_time_label">Wählen Sie den Tag und die Uhrzeit aus, an dem Sie Ihre Bestellung erhalten möchten</string>
+    <string name="chat_label">Plaudern</string>
+    <string name="enter_message_hint">Geben Sie eine Nachricht für den Koch ein</string>
+    <string name="enter_message_error">Gib deine Nachricht ein</string>
+</resources>

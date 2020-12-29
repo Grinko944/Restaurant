@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+
+    <string name="cart">Кошница</string>
+    <string name="home">У дома</string>
+    <string name="account">Сметка</string>
+    <string name="some_went_wrong">Нещо се обърка</string>
+    <string name="sign_in_text">Да вляза</string>
+    <string name="auth_text">Здравейте, за да продължите, трябва да влезете или да се регистрирате в приложението. за да влезете или да се регистрирате, просто трябва да въведете истинския си имейл и да излезете с парола.</string>
+    <string name="sign_out_label">Излез</string>
+
+    <string name="name_hint">Въведете вашето име</string>
+    <string name="old_password_hint">Въведете старата си парола</string>
+    <string name="new_password_hint">Въведете нова парола</string>
+    <string name="email_hint">Въведете вашия имейл</string>
+    <string name="password_hint">Въведете паролата си</string>
+
+    <string name="enable_night_theme">Активиране на тъмна версия</string>
+    <string name="enable_light_theme">Включете лека версия</string>
+
+    <string name="change_name_text">Въведете новото име, което искате да се показва в приложения</string>
+    <string name="change_email_text">Въведете нов имейл, че искате да получавате новини и ще се показва в приложения</string>
+    <string name="change_password_text">Въведете новата парола, която искате да използвате за влизане в приложения</string>
+
+    <string name="current_carrency">$ %s</string>
+    <string name="to_cart_label">Добави в кошницата</string>
+    <string name="save_label">Запазете</string>
+    <string name="name_error_label">Введите ваше имя</string>
+
+    <string name="change_user_name_label">Щракнете, за да промените потребителското име</string>
+    <string name="change_email_label">Щракнете, за да промените имейл</string>
+    <string name="change_password_label">Щракнете, за да промените паролата</string>
+    <string name="email_error_text">Моля, въведете валиден имейл</string>
+    <string name="change_language_label">Изберете език: %s</string>
+    <string name="password_small_error">Паролата ви трябва да съдържа поне 5 знака</string>
+    <string name="password_empty_error">Създайте новата си парола</string>
+    <string name="password_no_matches_error">Вашите пароли не съвпадат</string>
+
+    <string-array name="languages">
+        <item>Русский</item>
+        <item>English</item>
+        <item>Deutsche</item>
+        <item>Български</item>
+    </string-array>
+
+    <string name="total_label">Обща сума</string>
+    <string name="continue_label">Освен това</string>
+    <string name="no_have_products_in_cart_label">Нямате продукти във вашата количка</string>
+    <string name="change_language_text">Смени езика</string>
+    <string name="change_language_success_label">Сменихте езика си</string>
+    <string name="enter_correct_password_error">Въведете правилната парола за вашия акаунт</string>
+    <string name="enter_correct_email_error">Моля, въведете валиден имейл</string>
+    <string name="enter_password_lenght_more_5_error">Въведете парола с поне 5 знака</string>
+    <string name="create_order_label">Да поръчам</string>
+    <string name="select_day">Изберете ден</string>
+    <string name="select_time">Изберете час</string>
+    <string name="select_day_and_time_label">Изберете деня и часа, в който искате да получите поръчката си</string>
+    <string name="chat_label">Чат</string>
+    <string name="enter_message_hint">Въведете съобщение за готвача</string>
+    <string name="enter_message_error">Въведете вашето съобщение</string>
+</resources>

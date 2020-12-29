@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+
+    <string name="cart">Basket</string>
+    <string name="home">Home</string>
+    <string name="account">Account</string>
+    <string name="some_went_wrong">Something went wrong</string>
+    <string name="sign_in_text">Login</string>
+    <string name="auth_text">Hello, to continue you need to log in or register in the application. to enter or register you just need to enter your real email and come up with a password.</string>
+    <string name="sign_out_label">Sign out</string>
+
+    <string name="name_hint">Enter your name</string>
+    <string name="old_password_hint">Enter your old password</string>
+    <string name="new_password_hint">Enter your new password</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="password_hint">Enter your password</string>
+
+    <string name="enable_night_theme">Enable dark version</string>
+    <string name="enable_light_theme">Enable light version</string>
+
+    <string name="change_name_text">Enter the new name that you want to be displayed in applications</string>
+    <string name="change_email_text">Enter a new email that you want to receive news and you will be displayed in applications</string>
+    <string name="change_password_text">Enter the new password you want to use to log in to applications</string>
+
+    <string name="current_carrency">$ %s</string>
+    <string name="to_cart_label">В корзину</string>
+    <string name="save_label">Save</string>
+    <string name="name_error_label">Enter your name</string>
+
+    <string name="change_user_name_label">Click to change username</string>
+    <string name="change_email_label">Click to change email</string>
+    <string name="change_password_label">Click to change password</string>
+    <string name="email_error_text">Please enter a valid email</string>
+    <string name="change_language_label">Choose language: %s</string>
+    <string name="password_small_error">Your password must be at least 5 characters</string>
+    <string name="password_empty_error">Create your new password</string>
+    <string name="password_no_matches_error">Your passwords do not match</string>
+
+    <string-array name="languages">
+        <item>Русский</item>
+        <item>English</item>
+        <item>Deutsche</item>
+        <item>Български</item>
+    </string-array>
+
+    <string name="total_label">Total</string>
+    <string name="continue_label">Continue</string>
+    <string name="no_have_products_in_cart_label">You have no products in your cart</string>
+    <string name="change_language_text">Change language</string>
+    <string name="change_language_success_label">You changed your language</string>
+    <string name="enter_correct_password_error">Enter the correct password for your account</string>
+    <string name="enter_correct_email_error">Please enter a valid email</string>
+    <string name="enter_password_lenght_more_5_error">Enter a password at least 5 characters</string>
+    <string name="create_order_label">To order</string>
+    <string name="select_day">Choose a day</string>
+    <string name="select_time">Select time</string>
+    <string name="select_day_and_time_label">Select the day and time when you would like to receive your order</string>
+    <string name="chat_label">Chat</string>
+    <string name="enter_message_hint">Enter a message for the chef</string>
+    <string name="enter_message_error">Enter your message</string>
+</resources>

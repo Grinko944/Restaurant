@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "69115841923",
+    "project_id": "restaurant-7b542",
+    "storage_bucket": "restaurant-7b542.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69115841923:android:7723c796d69fc5e7e93ab6",
+        "android_client_info": {
+          "package_name": "app.beer.restaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69115841923-ppdfkfj6b4qi47avaul65496krbk45c5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.beer.restaurant",
+            "certificate_hash": "922b9edde52c359702984b7af3a01484815d7be9"
+          }
+        },
+        {
+          "client_id": "69115841923-rkpfk4g3072n3lou49kc5l17lmfo3dpo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAltHvQclhwovN9WohjUBfE7TGmM_U3KeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69115841923-rkpfk4g3072n3lou49kc5l17lmfo3dpo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

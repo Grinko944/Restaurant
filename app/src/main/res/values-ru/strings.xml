@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Restaurant</string>
+
+    <string name="cart">Корзина</string>
+    <string name="home">Главная</string>
+    <string name="account">Аккаунт</string>
+    <string name="some_went_wrong">Что-то пошло не так</string>
+    <string name="sign_in_text">Войти</string>
+    <string name="auth_text">Здравствуйте, чтобы продолжить нужно войти или зарегистрировать в приложений. чтобь войти или зарагистрироваться вам достаточно ввести ваш настоящий email и придумать пароль.</string>
+    <string name="sign_out_label">Выйти</string>
+
+    <string name="name_hint">Введите имя</string>
+    <string name="old_password_hint">Введите старый пароль</string>
+    <string name="new_password_hint">Введите новый пароль</string>
+    <string name="email_hint">Введите ваш email</string>
+    <string name="password_hint">Введите ваш пароль</string>
+
+    <string name="enable_night_theme">Включить темную версию</string>
+    <string name="enable_light_theme">Включить светлую версию</string>
+
+    <string name="change_name_text">Введите новое имя которое хотите чтобы у вас отображалось в приложений</string>
+    <string name="change_email_text">Введите новый email который хотите чтобы приходили новости и у вас отображался в приложений</string>
+    <string name="change_password_text">Введите новый пароль который хотите использовать для входа в приложений</string>
+
+    <string name="current_carrency">%s ₽</string>
+    <string name="to_cart_label">В корзину</string>
+    <string name="save_label">Сохранить</string>
+    <string name="name_error_label">Введите ваше имя</string>
+
+    <string name="change_user_name_label">Нажмите чтобы изменить имя пользователя</string>
+    <string name="change_email_label">Нажмите чтобы изменить email</string>
+    <string name="change_password_label">Нажмите чтобы изменить пароль</string>
+    <string name="email_error_text">Введите корректный email</string>
+    <string name="change_language_label">Выберите язык: %s</string>
+    <string name="password_small_error">Ваш пароль должен быть не меньше 5 символов</string>
+    <string name="password_empty_error">Придумайте ваш новый пароль</string>
+    <string name="password_no_matches_error">Ваши пароли не совпадают</string>
+
+    <string-array name="languages">
+        <item>Русский</item>
+        <item>English</item>
+        <item>Deutsche</item>
+        <item>Български</item>
+    </string-array>
+
+    <string name="total_label">Итого</string>
+    <string name="continue_label">Далее</string>
+    <string name="no_have_products_in_cart_label">У вас нет продуктов в корзине</string>
+    <string name="change_language_text">Сменить язык</string>
+    <string name="change_language_success_label">Вы сменили язык</string>
+    <string name="enter_correct_password_error">Введите правильный пароль от вашего аккаунта</string>
+    <string name="enter_correct_email_error">Введите корректный email</string>
+    <string name="enter_password_lenght_more_5_error">Введите пароль не менее 5 символов</string>
+    <string name="create_order_label">Заказать</string>
+    <string name="select_day">Выбрать день</string>
+    <string name="select_time">Выбрать время</string>
+    <string name="select_day_and_time_label">Выберите день и время когда вы бы хотели получить ваш заказ</string>
+    <string name="chat_label">Чат</string>
+    <string name="enter_message_hint">Введите сообщение для повара</string>
+    <string name="enter_message_error">Введите сообщение</string>
+</resources>
