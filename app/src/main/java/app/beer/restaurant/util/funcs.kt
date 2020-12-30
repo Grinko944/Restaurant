@@ -7,11 +7,13 @@ import androidx.fragment.app.Fragment
 import app.beer.restaurant.R
 import app.beer.restaurant.api.App
 import app.beer.restaurant.model.User
+import app.beer.restaurant.model.basket.Basket
 import app.beer.restaurant.model.chat.Message
 import app.beer.restaurant.model.product.Product
 import app.beer.restaurant.ui.activities.MainActivity
 import com.google.firebase.database.DataSnapshot
 import com.squareup.picasso.Picasso
+import java.math.BigDecimal
 
 lateinit var APP_ACTIVITY: MainActivity
 lateinit var APP: App
@@ -61,3 +63,20 @@ fun showToast(message: String) {
 }
 
 fun DataSnapshot.getMessageModel(): Message = this.getValue(Message::class.java) ?: Message()
+
+fun getPriceForBasket(product: Basket): BigDecimal {
+    return when {
+        APP_ACTIVITY.sharedManager.getString(LANGUAGE_KEY) == LANGUAGE_ENG -> {
+            product.price_USD.toBigDecimal()
+        }
+        APP_ACTIVITY.sharedManager.getString(LANGUAGE_KEY) == LANGUAGE_RUS -> {
+            product.price.toBigDecimal()
+        }
+        APP_ACTIVITY.sharedManager.getString(LANGUAGE_KEY) == LANGUAGE_DOT -> {
+            product.price_EURO.toBigDecimal()
+        }
+        else -> {
+            product.price_USD.toBigDecimal()
+        }
+    }
+}

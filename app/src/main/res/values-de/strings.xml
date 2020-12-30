@@ -58,4 +58,6 @@
     <string name="chat_label">Plaudern</string>
     <string name="enter_message_hint">Geben Sie eine Nachricht für den Koch ein</string>
     <string name="enter_message_error">Gib deine Nachricht ein</string>
+
+    <string name="no_have_products">Derzeit gibt es keine Produkte.</string>
 </resources>

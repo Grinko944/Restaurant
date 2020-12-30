@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASE_URL = "http://bbq-luxor.com"
+const val BASE_URL = "http://ca16211.tmweb.ru"
 const val BASE_URL_API = "$BASE_URL/api/"
 
 class App : Application() {

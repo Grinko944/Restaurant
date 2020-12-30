@@ -58,4 +58,6 @@
     <string name="chat_label">Chat</string>
     <string name="enter_message_hint">Enter a message for the chef</string>
     <string name="enter_message_error">Enter your message</string>
+
+    <string name="no_have_products">There are currently no products.</string>
 </resources>

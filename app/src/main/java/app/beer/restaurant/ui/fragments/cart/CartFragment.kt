@@ -1,6 +1,7 @@
 package app.beer.restaurant.ui.fragments.cart
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -100,20 +101,7 @@ class CartFragment : Fragment(), CartAdapter.OnClickListener {
                         continueBuyBtnContainer.visibility = View.VISIBLE
                         noHaveItemsTitle.visibility = View.GONE
                         adapter.getData().forEach {
-                            val price = when {
-                                APP_ACTIVITY.sharedManager.getString(LANGUAGE_KEY) == LANGUAGE_ENG -> {
-                                    it.price_USD.toBigDecimal()
-                                }
-                                APP_ACTIVITY.sharedManager.getString(LANGUAGE_KEY) == LANGUAGE_RUS -> {
-                                    it.price.toBigDecimal()
-                                }
-                                APP_ACTIVITY.sharedManager.getString(LANGUAGE_KEY) == LANGUAGE_DOT -> {
-                                    it.price_EURO.toBigDecimal()
-                                }
-                                else -> {
-                                    it.price_USD.toBigDecimal()
-                                }
-                            }
+                            val price = getPriceForBasket(it)
                             totalPrice += if (it.productCount > 1) {
                                 price * it.productCount.toBigDecimal()
                             } else {
@@ -148,7 +136,11 @@ class CartFragment : Fragment(), CartAdapter.OnClickListener {
                     val body = response.body()
                     if (body?.message != null) {
                         if (data.size > 1) {
-                            totalPrice -= product.price.toBigDecimal()
+                            var price = getPriceForBasket(product)
+                            if (product.productCount > 1) {
+                                price *= product.productCount.toBigDecimal()
+                            }
+                            totalPrice -= price
                         } else if (data.size == 1) {
                             totalPrice = "0".toBigDecimal()
                         }

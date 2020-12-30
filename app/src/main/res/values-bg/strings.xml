@@ -58,4 +58,6 @@
     <string name="chat_label">Чат</string>
     <string name="enter_message_hint">Въведете съобщение за готвача</string>
     <string name="enter_message_error">Въведете вашето съобщение</string>
+
+    <string name="no_have_products">В момента няма продукти.</string>
 </resources>

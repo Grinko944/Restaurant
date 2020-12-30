@@ -1,14 +1,17 @@
 package app.beer.restaurant.ui.fragments.main
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import app.beer.restaurant.R
 import app.beer.restaurant.api.App
 import app.beer.restaurant.model.product.Product
@@ -20,8 +23,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainFragment : Fragment() {
-
-    private lateinit var progressBar: ProgressBar
+    private lateinit var noHaveProductsLabel: TextView
+    private lateinit var swipeRefresh: SwipeRefreshLayout
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: MainAdapter
@@ -40,7 +43,17 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView = view.findViewById(R.id.products_recycler_view)
-        progressBar = view.findViewById(R.id.progress_bar)
+        noHaveProductsLabel = view.findViewById(R.id.no_have_products_label)
+        swipeRefresh = view.findViewById(R.id.swipe_refresh)
+
+        swipeRefresh.run {
+            isRefreshing = false
+            setColorSchemeColors(Color.YELLOW, Color.CYAN)
+            setOnRefreshListener {
+                getProducts()
+                isRefreshing = false
+            }
+        }
 
         initRecyclerView()
         getProducts()
@@ -55,12 +68,12 @@ class MainFragment : Fragment() {
     }
 
     private fun getProducts() {
-        progressBar.visibility = View.VISIBLE
+        swipeRefresh.isRefreshing = true
         APP.getApi()
             .getProducts()
             .enqueue(object : Callback<ProductsResponse> {
                 override fun onFailure(call: Call<ProductsResponse>, t: Throwable) {
-                    progressBar.visibility = View.GONE
+                    swipeRefresh.isRefreshing = false
                 }
 
                 override fun onResponse(
@@ -72,7 +85,12 @@ class MainFragment : Fragment() {
                         if (items != null) {
                             data = items.results as ArrayList<Product>
                             adapter.setData(data)
-                            progressBar.visibility = View.GONE
+                            swipeRefresh.isRefreshing = false
+                            if (items.results.isNotEmpty()) {
+                                noHaveProductsLabel.visibility = View.GONE
+                            } else {
+                                noHaveProductsLabel.visibility = View.VISIBLE
+                            }
                         }
                     }
                 }
