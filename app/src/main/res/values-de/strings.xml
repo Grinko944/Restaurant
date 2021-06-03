@@ -60,4 +60,18 @@
     <string name="enter_message_error">Gib deine Nachricht ein</string>
 
     <string name="no_have_products">Derzeit gibt es keine Produkte.</string>
+    <string name="orders">Aufträge</string>
+
+    <string name="auth_with_google_btn">Kämpfe mit Google</string>
+    <string name="auth_with_facebook_label">Mit Facebook anmelden</string>
+    <string name="names_of_products">Produktnamen</string>
+    <string name="order_id">Bestellnummer</string>
+    <string name="status">Status</string>
+    <string name="price">Preis</string>
+    <string name="order_sent_time">Bestellzeit</string>
+
+    <string name = "status_completed"> Abgeschlossen </string>
+    <string name = "status_prepare"> Vorbereiten </string>
+    <string name = "status_accepted"> Akzeptiert </string>
+    <string name = "status_delivered"> Geliefert </string>
 </resources>

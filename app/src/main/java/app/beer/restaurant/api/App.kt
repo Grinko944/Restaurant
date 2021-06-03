@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASE_URL = "http://ca16211.tmweb.ru"
+const val BASE_URL = "http://bbq-luxor.com"
 const val BASE_URL_API = "$BASE_URL/api/"
 
 class App : Application() {
@@ -20,14 +20,11 @@ class App : Application() {
         super.onCreate()
 
         val interceptor = HttpLoggingInterceptor()
-        interceptor.level = if (BuildConfig.DEBUG)
-            HttpLoggingInterceptor.Level.BODY
-        else
-            HttpLoggingInterceptor.Level.NONE
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
 
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(interceptor)
-            .connectTimeout(120000, TimeUnit.SECONDS)
+            .connectTimeout(60000, TimeUnit.SECONDS)
             .build()
 
         retrofit = Retrofit.Builder()

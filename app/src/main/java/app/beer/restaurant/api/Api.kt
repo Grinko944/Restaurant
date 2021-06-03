@@ -4,6 +4,8 @@ import app.beer.restaurant.model.User
 import app.beer.restaurant.model.auth.AuthResponse
 import app.beer.restaurant.model.basket.Basket
 import app.beer.restaurant.model.basket.BasketResponse
+import app.beer.restaurant.model.order.Order
+import app.beer.restaurant.model.order.OrderListResponse
 import app.beer.restaurant.model.order.OrderResponse
 import app.beer.restaurant.model.product.Product
 import app.beer.restaurant.model.product.ProductsResponse
@@ -16,7 +18,7 @@ interface Api {
     fun getProducts(): Call<ProductsResponse>
 
     @GET("auth")
-    fun auth(@Query("email") email: String, @Query("password") password: String): Call<AuthResponse>
+    fun auth(@Query("email") email: String, @Query("password") password: String = "", @Query("social_user_id") socialAuthId: String? = null): Call<AuthResponse>
 
     @GET("products/show/{id}")
     fun getProductById(@Path("id") id: Int): Call<Product>
@@ -26,7 +28,7 @@ interface Api {
 
     @GET("user/edit/{id}")
     fun updateUser(
-        @Path("id") id: Int, @Query("name") name: String, @Query("password") password: String,
+        @Path("id") id: Int, @Query("name") name: String, @Query("password") password: String = "",
         @Query("email") email: String
     ): Call<User>
 
@@ -56,6 +58,9 @@ interface Api {
         @Query("ids") ids: String,
         @Query("user_id") user_id: Int,
         @Query("delivery_time") deliveryTime: String
-    ) : Call<OrderResponse>
+    ): Call<OrderResponse>
+
+    @GET("orders/get")
+    fun getOrders(@Query("user_id") userId: Int, @Query("lang") lang: String = "ru"): Call<OrderListResponse>
 
 }

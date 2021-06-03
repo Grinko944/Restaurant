@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.FrameLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import app.beer.restaurant.R
@@ -20,6 +22,8 @@ import app.beer.restaurant.ui.fragments.chat.ChatFragment
 import app.beer.restaurant.ui.fragments.main.MainFragment
 import app.beer.restaurant.ui.fragments.register.AuthFragment
 import app.beer.restaurant.util.*
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
@@ -59,26 +63,26 @@ class MainActivity : AppCompatActivity() {
 
         sharedManager = SharedManager()
 
-        if (sharedManager.getBoolean(IS_AUTH_KEY)) {
-            if (sharedManager.getString(LANGUAGE_KEY) == "") {
-                sharedManager.putString(LANGUAGE_KEY, LANGUAGE_ENG)
+        if (sharedManager.getString(LANGUAGE_KEY) == "") {
+            sharedManager.putString(LANGUAGE_KEY, LANGUAGE_ENG)
+        }
+
+        val localStr =
+            when (sharedManager.getString(LANGUAGE_KEY)) {
+                LANGUAGE_RUS -> "ru"
+                LANGUAGE_ENG -> "en"
+                LANGUAGE_DOT -> "de"
+                LANGUAGE_BOL -> "bg"
+                else -> "en"
             }
 
-            val localStr =
-                when (sharedManager.getString(LANGUAGE_KEY)) {
-                    LANGUAGE_RUS -> "ru"
-                    LANGUAGE_ENG -> "en"
-                    LANGUAGE_DOT -> "de"
-                    LANGUAGE_BOL -> "bg"
-                    else -> "en"
-                }
+        val locale = Locale(localStr)
+        Locale.setDefault(locale)
+        val configuration = Configuration()
+        configuration.locale = locale
+        resources.updateConfiguration(configuration, null)
 
-            val locale = Locale(localStr)
-            Locale.setDefault(locale)
-            val configuration = Configuration()
-            configuration.locale = locale
-            resources.updateConfiguration(configuration, null)
-
+        if (sharedManager.getBoolean(IS_AUTH_KEY)) {
             bottomNavigationView.visibility = View.VISIBLE
             APP.getApi().getUser(sharedManager.getInt(USER_ID_KEY))
                 .enqueue(RetrofitCallback<User> { _, response ->
@@ -93,6 +97,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 })
         } else {
+            if (!sharedManager.getBoolean("is_dialog_language_showed")) {
+                showLanguageDialog()
+            }
             bottomNavigationView.visibility = View.GONE
             splashScreen.visibility = View.GONE
             replaceFragment(AuthFragment(), false)
@@ -103,6 +110,43 @@ class MainActivity : AppCompatActivity() {
         } else {
             changeTheme(AppCompatDelegate.MODE_NIGHT_NO)
         }
+    }
+
+    private fun showLanguageDialog() {
+        val builder = AlertDialog.Builder(APP_ACTIVITY)
+
+        val adapter = ArrayAdapter<String>(
+            APP_ACTIVITY, android.R.layout.select_dialog_singlechoice,
+            resources.getStringArray(R.array.languages)
+        )
+
+        builder.setTitle(getString(R.string.change_language_text))
+            .setNegativeButton("cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setAdapter(adapter) { dialog, which ->
+                val language = adapter.getItem(which)
+                if (language != null) {
+                    sharedManager.putString(LANGUAGE_KEY, language)
+                    val localStr =
+                        when (language) {
+                            LANGUAGE_RUS -> "ru"
+                            LANGUAGE_ENG -> "en"
+                            LANGUAGE_DOT -> "de"
+                            LANGUAGE_BOL -> "bg"
+                            else -> "en"
+                        }
+                    val locale = Locale(localStr)
+                    Locale.setDefault(locale)
+                    val configuration = Configuration()
+                    configuration.locale = locale
+                    resources.updateConfiguration(configuration, null)
+                    restartActivity()
+                }
+                showToast(getString(R.string.change_language_success_label))
+            }
+        builder.show()
+        sharedManager.putBoolean("is_dialog_language_showed", true)
     }
 
     override fun onBackPressed() {
@@ -132,7 +176,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             })
-        // сделать отображение badge если у пользователя есть товары в корзине и чтобы отоюражалось количество товаров
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -144,8 +187,24 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.sign_out) {
-            sharedManager.putBoolean(IS_AUTH_KEY, false)
-            restartActivity()
+            if (sharedManager.getString("provider") == "google") {
+                val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestIdToken(getString(R.string.default_web_client_id))
+                    .requestEmail()
+                    .build()
+                val googleSignInClient = GoogleSignIn.getClient(this, gso)
+                googleSignInClient.signOut()
+                    .addOnSuccessListener {
+                        sharedManager.putBoolean(IS_AUTH_KEY, false)
+                        restartActivity()
+                    }
+                    .addOnFailureListener {
+                        showToast(resources.getString(R.string.some_went_wrong))
+                    }
+            } else {
+                sharedManager.putBoolean(IS_AUTH_KEY, false)
+                restartActivity()
+            }
         }
         return true
     }

@@ -14,6 +14,8 @@ import app.beer.restaurant.ui.activities.MainActivity
 import com.google.firebase.database.DataSnapshot
 import com.squareup.picasso.Picasso
 import java.math.BigDecimal
+import java.text.SimpleDateFormat
+import java.util.*
 
 lateinit var APP_ACTIVITY: MainActivity
 lateinit var APP: App
@@ -79,4 +81,24 @@ fun getPriceForBasket(product: Basket): BigDecimal {
             product.price_USD.toBigDecimal()
         }
     }
+}
+
+fun getLanguageCode(sharedManager: SharedManager) = when (sharedManager.getString(LANGUAGE_KEY)) {
+    LANGUAGE_RUS -> "ru"
+    LANGUAGE_ENG -> "en"
+    LANGUAGE_DOT -> "de"
+    LANGUAGE_BOL -> "bg"
+    else -> "en"
+}
+
+fun String.timestampToDate() = this.substring(0, 10).reversed().replace("-", ".")
+
+fun Long.getDateTime(): String {
+     return try {
+         val sdf = SimpleDateFormat("MM.dd.yyyy", Locale.getDefault())
+         val netDate = Date(this * 1000)
+         sdf.format(netDate)
+     } catch (e: Exception) {
+         e.toString()
+     }
 }

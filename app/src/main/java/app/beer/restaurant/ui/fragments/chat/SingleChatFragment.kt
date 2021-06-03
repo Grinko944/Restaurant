@@ -79,12 +79,6 @@ class SingleChatFragment : Fragment() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
-//                for (item in snapshot.children) {
-//                    val message = item.getValue(Message::class.java)
-//                    if (message != null && adapter.isExists(message)) {
-//                        adapter.addMessage(message)
-//                    }
-//                }
                 messages = snapshot.children.map { it.getMessageModel() }
                 adapter.setMessages(messages)
                 if (messages.size > 2) {

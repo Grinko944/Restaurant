@@ -15,21 +15,12 @@ import app.beer.restaurant.util.*
 open class MainAdapter(var data: ArrayList<Product>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val bigProductPhoto: ImageView = itemView.findViewById(R.id.big_product_photo)
-        val bigProductName: TextView = itemView.findViewById(R.id.big_product_name)
-        val bigProductPrice: TextView = itemView.findViewById(R.id.big_product_price)
-
         val smallProductPhoto: ImageView = itemView.findViewById(R.id.small_product_photo)
         val smallProductName: TextView = itemView.findViewById(R.id.small_product_name)
         val smallProductPrice: TextView = itemView.findViewById(R.id.small_product_price)
 
         fun bind(product: Product) {
-//            bigProductPhoto.loadAndSetImage(BASE_URL + product.photoUrl)
-//            // сделать имя чтобы зависело от выбраного языка
-//            bigProductName.text = product.name
-//            bigProductPrice.text = product.price
-
-            smallProductPhoto.loadAndSetImage(BASE_URL + product.photoUrl)
+            smallProductPhoto.loadAndSetImage("$BASE_URL/${product.photoUrl}")
 
             smallProductName.text = when {
                 APP_ACTIVITY.sharedManager.getString(LANGUAGE_KEY) == LANGUAGE_ENG -> {

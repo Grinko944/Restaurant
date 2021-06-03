@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Switch
@@ -19,6 +18,7 @@ import app.beer.restaurant.databinding.FragmentAccountBinding
 import app.beer.restaurant.ui.fragments.account.change.ChangeEmailFragment
 import app.beer.restaurant.ui.fragments.account.change.ChangeNameFragment
 import app.beer.restaurant.ui.fragments.account.change.ChangePasswordFragment
+import app.beer.restaurant.ui.fragments.account.orders.OrdersFragment
 import app.beer.restaurant.util.*
 import java.util.*
 
@@ -30,6 +30,7 @@ class AccountFragment : Fragment() {
     private lateinit var accountEmailChangeBtn: LinearLayout
     private lateinit var accountPasswordChangeBtn: LinearLayout
     private lateinit var changeLanguageBtn: LinearLayout
+    private lateinit var ordersBtn: LinearLayout
 
     private lateinit var appLanguageText: TextView
 
@@ -80,6 +81,7 @@ class AccountFragment : Fragment() {
         accountPasswordChangeBtn = view.findViewById(R.id.account_password_change_btn)
         changeLanguageBtn = view.findViewById(R.id.change_language_btn)
         appLanguageText = view.findViewById(R.id.app_language_text)
+        ordersBtn = view.findViewById(R.id.orders_btn)
 
         appLanguageText.text =
             getString(R.string.change_language_label, sharedManager.getString(LANGUAGE_KEY))
@@ -95,6 +97,10 @@ class AccountFragment : Fragment() {
         }
         changeLanguageBtn.setOnClickListener {
             showListDialog()
+        }
+
+        ordersBtn.setOnClickListener {
+            replaceFragment(OrdersFragment(), true)
         }
     }
 

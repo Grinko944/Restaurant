@@ -18,11 +18,13 @@ import app.beer.restaurant.model.product.Product
 import app.beer.restaurant.model.product.ProductsResponse
 import app.beer.restaurant.util.APP
 import app.beer.restaurant.util.APP_ACTIVITY
+import app.beer.restaurant.util.SharedManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MainFragment : Fragment() {
+
     private lateinit var noHaveProductsLabel: TextView
     private lateinit var swipeRefresh: SwipeRefreshLayout
 
@@ -30,6 +32,8 @@ class MainFragment : Fragment() {
     private lateinit var adapter: MainAdapter
     private lateinit var layoutManager: LinearLayoutManager
     private var data = ArrayList<Product>()
+
+    private lateinit var sharedManager: SharedManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +45,8 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        sharedManager = SharedManager()
 
         recyclerView = view.findViewById(R.id.products_recycler_view)
         noHaveProductsLabel = view.findViewById(R.id.no_have_products_label)

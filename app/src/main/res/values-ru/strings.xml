@@ -60,4 +60,18 @@
     <string name="enter_message_error">Введите сообщение</string>
 
     <string name="no_have_products">На данный момент продуктов нет</string>
+    <string name="orders">Заказы</string>
+
+    <string name="auth_with_google_btn">Воити с google</string>
+    <string name="auth_with_facebook_label">Войти с Facebook</string>
+    <string name="names_of_products">Названия продуктов</string>
+    <string name="order_id">Номер заказа</string>
+    <string name="status">Статус</string>
+    <string name="price">Цена</string>
+    <string name="order_sent_time">Время заказа</string>
+
+    <string name = "status_completed">Выполнен</string>
+    <string name = "status_prepare">Готовиться</string>
+    <string name = "status_accepted">Принято</string>
+    <string name = "status_delivered">Доставляется</string>
 </resources>

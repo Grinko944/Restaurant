@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="user"
             type="app.beer.restaurant.model.User" />
@@ -47,9 +48,9 @@
                         android:id="@+id/account_user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{user.name}"
                         android:textColor="@color/primary_text_color"
                         android:textSize="16sp"
-                        android:text="@{user.name}"
                         tools:text="Антон данилов" />
 
                     <TextView
@@ -63,19 +64,19 @@
                     android:id="@+id/account_email_change_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:orientation="vertical"
-                    android:padding="4dp"
-                    android:layout_marginTop="8dp">
+                    android:padding="4dp">
 
                     <TextView
                         android:id="@+id/account_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{user.email}"
                         android:textColor="@color/primary_text_color"
                         android:textSize="16sp"
-                        android:text="@{user.email}"
                         tools:text="danilovanton724@gmail.com" />
 
                     <TextView
@@ -89,19 +90,19 @@
                     android:id="@+id/account_password_change_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:orientation="vertical"
-                    android:padding="4dp"
-                    android:layout_marginTop="8dp">
+                    android:padding="4dp">
 
                     <TextView
                         android:id="@+id/account_password"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@{user.password.length() > 0 ? user.password.substring(0, user.password.length() - user.password.length() / 2) + `••••` : ``}"
                         android:textColor="@color/primary_text_color"
                         android:textSize="16sp"
-                        android:text="@{user.password.substring(0, user.password.length() - 4) + `••••`}"
                         tools:text="2911••••••" />
 
                     <TextView
@@ -146,10 +147,10 @@
                         android:id="@+id/app_theme_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/primary_text_color"
-                        android:textSize="16sp"
                         android:layout_weight="1"
-                        android:text="@string/enable_night_theme" />
+                        android:text="@string/enable_night_theme"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="16sp" />
 
                     <Switch
                         android:id="@+id/night_mode_switch"
@@ -173,6 +174,23 @@
                         android:textColor="@color/primary_text_color"
                         android:textSize="16sp"
                         tools:text="@string/change_language_label" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/orders_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
+
+                    <TextView
+                        android:id="@+id/orders"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/orders"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
