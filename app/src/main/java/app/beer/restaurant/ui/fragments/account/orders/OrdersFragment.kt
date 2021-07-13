@@ -74,7 +74,8 @@ class OrdersFragment : Fragment() {
                 getTextView(if (it.names.endsWith(",")) it.names.substring(0, -1) else it.names)
             val status = getTextView(
                 when (it.status) {
-                    "Принят" -> resources.getString(R.string.status_accepted)
+                    "Новый" -> resources.getString(R.string.status_accepted)
+                    "New" -> resources.getString(R.string.status_accepted)
                     "Готовиться" -> resources.getString(R.string.status_prepare)
                     "Доставляется" -> resources.getString(R.string.status_delivered)
                     "Выполнен" -> resources.getString(R.string.status_completed)

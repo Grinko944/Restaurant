@@ -72,6 +72,6 @@
 
     <string name="status_completed">Completed</string>
     <string name="status_prepare">Prepare</string>
-    <string name="status_accepted">Accepted</string>
+    <string name="status_accepted">New</string>
     <string name="status_delivered">Delivered</string>
 </resources>

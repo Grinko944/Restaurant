@@ -72,6 +72,6 @@
 
     <string name = "status_completed">Выполнен</string>
     <string name = "status_prepare">Готовиться</string>
-    <string name = "status_accepted">Принято</string>
+    <string name = "status_accepted">Новый</string>
     <string name = "status_delivered">Доставляется</string>
 </resources>

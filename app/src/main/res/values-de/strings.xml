@@ -72,6 +72,6 @@
 
     <string name = "status_completed"> Abgeschlossen </string>
     <string name = "status_prepare"> Vorbereiten </string>
-    <string name = "status_accepted"> Akzeptiert </string>
+    <string name = "status_accepted"> Neu </string>
     <string name = "status_delivered"> Geliefert </string>
 </resources>
